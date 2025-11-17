@@ -33,8 +33,8 @@ Transfer messages and files from [Telegram](https://telegram.org/) to your [Obsi
 ## 👏 Manual Installation
 
 1. Download main.js, styles.css, manifest.json from the [latest release](https://github.com/renameduserid/obsidian-telegram-sync/releases//latest)
-2. Copy the downloaded files to <path-to-your-vault>/.obsidian/plugins/telegram-sync/
-3. Restart Obsidian and enable **Telegram Sync** in the Community plugins tab
+2. Copy the downloaded files to <path-to-your-vault>/.obsidian/plugins/obsidian-telegram-sync-fork/
+3. Restart Obsidian and enable **Telegram Sync FORK** in the Community plugins tab
 
 ## 📮 Usage
 
