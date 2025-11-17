@@ -2,7 +2,7 @@
 
 Transfer messages and files from [Telegram](https://telegram.org/) to your [Obsidian](https://obsidian.md/plugins?id=telegram-sync) vault. You can easily save text, voice transcripts, images, and other files from your Telegram chats to Obsidian for further processing and organization. This plugin is only available for desktops and would never be available on mobile platforms.
 
-<img width="469" alt="image" src="https://github.com/soberhacker/obsidian-telegram-sync/assets/128756825/65f84775-8cb4-4a45-811b-296b87e2b52d"> <img width="438" alt="image" src="https://github.com/soberhacker/obsidian-telegram-sync/assets/128756825/e50c6e5a-b9d6-4995-8538-d4095d6966f2">
+<img width="480" alt="image" src="https://github.com/user-attachments/assets/301ea7ff-dd94-489e-8665-dec7dc0e341d"> <img width="480" alt="image" src="https://github.com/user-attachments/assets/2ff4094c-2d12-40a1-ae24-db13e8526f34">
 
 ---
 
@@ -32,9 +32,9 @@ Transfer messages and files from [Telegram](https://telegram.org/) to your [Obsi
 
 ## 👏 Manual Installation
 
-1. ~Download main.js, styles.css, manifest.json from the [latest release](https://github.com/soberhacker/obsidian-telegram-sync/releases//latest)~
-2. ~Copy the downloaded files to <path-to-your-vault>/.obsidian/plugins/telegram-sync/~
-3. ~Restart Obsidian and enable **Telegram Sync** in the Community plugins tab~
+1. Download main.js, styles.css, manifest.json from the [latest release](https://github.com/renameduserid/obsidian-telegram-sync/releases//latest)
+2. Copy the downloaded files to <path-to-your-vault>/.obsidian/plugins/telegram-sync/
+3. Restart Obsidian and enable **Telegram Sync** in the Community plugins tab
 
 ## 📮 Usage
 
