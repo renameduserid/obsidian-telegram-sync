@@ -4,6 +4,8 @@ Transfer messages and files from [Telegram](https://telegram.org/) to your [Obsi
 
 <img width="480" alt="image" src="https://github.com/user-attachments/assets/301ea7ff-dd94-489e-8665-dec7dc0e341d"> <img width="480" alt="image" src="https://github.com/user-attachments/assets/2ff4094c-2d12-40a1-ae24-db13e8526f34">
 
+This repo forked from [soberhacker/obsidian-telegram-sync](https://github.com/soberhacker/obsidian-telegram-sync).
+
 ---
 
 ## 📚 Table of Contents
