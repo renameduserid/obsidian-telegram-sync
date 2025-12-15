@@ -7,7 +7,7 @@
 // TODO NEXT: check reconnecting
 // TODO NEXT: bur in reconnecting on MacBook https://t.me/sm1rnov_id
 import { compareVersions } from "compare-versions";
-export const releaseVersion = "4.0.0";
+export const releaseVersion = "4.0.0-renameduserid.3";
 export const showNewFeatures = true;
 export let showBreakingChanges = true;
 
