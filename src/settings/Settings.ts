@@ -98,14 +98,12 @@ export const DEFAULT_SETTINGS: TelegramSyncSettings = {
 
 export class TelegramSyncSettingTab extends PluginSettingTab {
 	plugin: TelegramSyncPlugin;
-	subscribedOnInsiderChannel: boolean;
 	refreshValues: RefreshValues;
 	refreshIntervalId: NodeJS.Timer;
 
 	constructor(app: App, plugin: TelegramSyncPlugin) {
 		super(app, plugin);
 		this.plugin = plugin;
-		this.subscribedOnInsiderChannel = false;
 	}
 
 	async refresh() {
@@ -154,10 +152,7 @@ export class TelegramSyncSettingTab extends PluginSettingTab {
 		await this.addMessageDistributionRules();
 
 		new Setting(this.containerEl).setName("Insider features").setHeading();
-		this.subscribedOnInsiderChannel = await Client.subscribedOnInsiderChannel();
 		await this.addProcessOldMessages();
-		// await this.addBetaRelease();
-		// this.addTelegramChannel();
 		await this.setRefreshInterval();
 	}
 
@@ -379,59 +374,8 @@ export class TelegramSyncSettingTab extends PluginSettingTab {
 		});
 	}
 
-	// async addBetaRelease() {
-	// 	const disabled = !this.plugin.userConnected || !this.subscribedOnInsiderChannel;
-	//
-	// 	const installed = "Installed\n\nRestart the plugin or Obsidian to apply the changes";
-	//
-	// 	new Setting(this.containerEl)
-	// 		.setName("Beta release")
-	// 		.setDesc(
-	// 			"Install the latest beta release to be among the first to try out new features. It will launch during the plugin's next load",
-	// 		)
-	// 		.addButton(async (btn) => {
-	// 			btn.setDisabled(disabled);
-	// 			btn.setTooltip("Install Beta Release");
-	// 			btn.setWarning();
-	// 			btn.setIcon("install");
-	// 			btn.onClick(async () => {
-	// 				const notice = new Notice("Downloading...", _day);
-	// 				try {
-	// 					const betaRelease = await Client.getLastBetaRelease(this.plugin.manifest.version);
-	// 					notice.setMessage(`Installing...`);
-	// 					await replaceMainJs(this.app.vault, betaRelease.mainJs);
-	// 					this.plugin.settings.betaVersion = betaRelease.betaVersion;
-	// 					await this.plugin.saveSettings();
-	// 					notice.setMessage(installed);
-	// 				} catch (e) {
-	// 					notice.setMessage(e);
-	// 				}
-	// 			});
-	// 		})
-	// 		.addButton(async (btn) => {
-	// 			btn.setTooltip("Return to production release");
-	// 			btn.setIcon("undo-glyph");
-	// 			btn.setDisabled(disabled);
-	// 			btn.onClick(async () => {
-	// 				if (!this.plugin.settings.betaVersion) {
-	// 					new Notice(`You already have the production version of the plugin installed`, _5sec);
-	// 					return;
-	// 				}
-	// 				const notice = new Notice("Installing...", _day);
-	// 				try {
-	// 					await replaceMainJs(this.app.vault, "main-prod.js");
-	// 					this.plugin.settings.betaVersion = "";
-	// 					await this.plugin.saveSettings();
-	// 					notice.setMessage(installed);
-	// 				} catch (e) {
-	// 					notice.setMessage("Error during return to production release: " + e);
-	// 				}
-	// 			});
-	// 		});
-	// }
-
 	async addProcessOldMessages() {
-		const disabled = !this.plugin.userConnected || !this.subscribedOnInsiderChannel;
+		const disabled = !this.plugin.userConnected;
 
 		new Setting(this.containerEl)
 			.setName("Process old messages")
@@ -459,33 +403,6 @@ export class TelegramSyncSettingTab extends PluginSettingTab {
 				});
 			});
 	}
-
-	// addTelegramChannel() {
-	// 	const telegramChannelSetting = new Setting(this.containerEl)
-	// 		.setName("Telegram Sync Insider channel")
-	// 		.setDesc(
-	// 			"By connecting your user to the plugin and subscribing to our Telegram channel, you'll get access to the latest beta versions, several months ahead of public release, and unlock for free ",
-	// 		)
-	// 		.addButton((btn: ButtonComponent) => {
-	// 			if (this.subscribedOnInsiderChannel) btn.setButtonText("Open");
-	// 			else {
-	// 				btn.setButtonText("Unlock Features for Free");
-	// 				btn.setClass("mod-cta");
-	// 			}
-	// 			btn.onClick(async () => {
-	// 				if (!this.subscribedOnInsiderChannel)
-	// 					displayAndLog(
-	// 						this.plugin,
-	// 						"After channel subscription, connect your Telegram user (if not done) and refresh the plugin settings for insider features",
-	// 					);
-	// 				window.open(telegramChannelLink, "_blank");
-	// 			});
-	// 		});
-	// 	telegramChannelSetting.descEl.createEl("a", {
-	// 		href: insiderFeaturesLink,
-	// 		text: "all insider features",
-	// 	});
-	// }
 
 	async storeTopicName(msg: TelegramBot.Message) {
 		const bot = this.plugin.bot;

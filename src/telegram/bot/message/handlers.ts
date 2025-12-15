@@ -468,7 +468,7 @@ export async function ifNewReleaseThenShowChanges(plugin: TelegramSyncPlugin, ms
 	plugin.settings.pluginVersion = release.releaseVersion;
 	await plugin.saveSettings();
 
-	if (plugin.userConnected && (await Client.subscribedOnInsiderChannel())) return;
+	if (plugin.userConnected) return;
 
 	if (plugin.settings.pluginVersion && release.showNewFeatures) {
 		const options: SendMessageOptions = {
