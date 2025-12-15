@@ -16,3 +16,13 @@ if (minAppVersion !== versions[latestCompatibleObsidianVersion]) {
 	versions[targetVersion] = minAppVersion;
 	writeFileSync("versions.json", JSON.stringify(versions, null, "\t"));
 }
+
+// keep release-notes.mjs in sync
+const releaseNotesPath = "release-notes.mjs";
+const src = readFileSync(releaseNotesPath, "utf8");
+const re = /export\s+const\s+releaseVersion\s*=\s*(['"`])[^'"`]*\1\s*;/;
+if (!re.test(src)) {
+	throw new Error(`releaseVersion not found in ${releaseNotesPath}`);
+}
+const updated = src.replace(re, `export const releaseVersion = "${targetVersion}";`);
+if (updated !== src) writeFileSync(releaseNotesPath, updated, "utf8");
