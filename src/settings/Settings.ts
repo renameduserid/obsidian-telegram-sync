@@ -341,6 +341,16 @@ export class TelegramSyncSettingTab extends PluginSettingTab {
 					});
 			});
 			setting.addExtraButton(async (btn) => {
+				btn.setIcon("copy-plus")
+					.setTooltip("Duplicate")
+					.onClick(async () => {
+						const rule = JSON.parse(JSON.stringify(this.plugin.settings.messageDistributionRules[index]));
+						this.plugin.settings.messageDistributionRules.push(rule);
+						await this.plugin.saveSettings();
+						await this.display();
+					});
+			});
+			setting.addExtraButton(async (btn) => {
 				btn.setIcon("trash-2")
 					.setTooltip("Delete")
 					.onClick(async () => {
