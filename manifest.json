@@ -1,7 +1,7 @@
 {
 	"id": "obsidian-telegram-sync-fork",
 	"name": "Telegram Sync FORK",
-	"version": "4.0.0-renameduserid.4",
+	"version": "4.0.0-renameduserid.3",
 	"minAppVersion": "1.0.0",
 	"description": "Transfer messages and files from Telegram to Obsidian.",
 	"author": "renameduserid",
